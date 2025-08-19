@@ -11,24 +11,26 @@
 <body>
   <h1>My Simple Strava Dashboard</h1>
 
-  <!-- Where Python will insert output -->
+  <!-- Output container -->
   <div id="output"></div>
 
   <py-script>
 from pyscript import Element
 
+# Simulated Strava activities
 activities = [
     {"name": "Morning Run", "distance": 5},
     {"name": "Evening Ride", "distance": 20},
     {"name": "Hike", "distance": 8}
 ]
 
+# Function to calculate total distance
 def total_distance(activities):
     return sum(a["distance"] for a in activities)
 
 total = total_distance(activities)
 
-# Inject into <div id="output">
+# Write output into the <div id="output">
 Element("output").write(f"Total Distance: {total} km")
   </py-script>
 </body>
