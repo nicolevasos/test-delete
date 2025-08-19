@@ -11,7 +11,12 @@
 <body>
   <h1>My Simple Strava Dashboard</h1>
 
+  <!-- Where Python will insert output -->
+  <div id="output"></div>
+
   <py-script>
+from pyscript import Element
+
 activities = [
     {"name": "Morning Run", "distance": 5},
     {"name": "Evening Ride", "distance": 20},
@@ -22,7 +27,9 @@ def total_distance(activities):
     return sum(a["distance"] for a in activities)
 
 total = total_distance(activities)
-display(f"Total Distance: {total} km")
+
+# Inject into <div id="output">
+Element("output").write(f"Total Distance: {total} km")
   </py-script>
 </body>
 </html>
